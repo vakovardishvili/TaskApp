@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/left_views"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TableLayout
+                android:id="@+id/table_left_corner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ge.kinseed.taskapp.view.MyScrollView
+                android:id="@+id/scroll_view_left_items"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollIndicators="none"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/table_left_corner">
+
+                <TableLayout
+                    android:id="@+id/table_left_items"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+            </ge.kinseed.taskapp.view.MyScrollView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <ge.kinseed.taskapp.view.MyHorizontalScrollView
+        android:id="@+id/scroll_view_top_items"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/left_views"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableLayout
+            android:id="@+id/table_top_items"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
+    </ge.kinseed.taskapp.view.MyHorizontalScrollView>
+
+    <ge.kinseed.taskapp.view.MyScrollView
+        android:id="@+id/scroll_view_main_vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/left_views"
+        app:layout_constraintTop_toBottomOf="@id/scroll_view_top_items">
+
+        <ge.kinseed.taskapp.view.MyHorizontalScrollView
+            android:id="@+id/scroll_view_main_horizontal"
+            android:layout_width="match_parent"
+            android:scrollbars="horizontal"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                android:id="@+id/table_main"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </ge.kinseed.taskapp.view.MyHorizontalScrollView>
+    </ge.kinseed.taskapp.view.MyScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

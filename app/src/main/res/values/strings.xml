@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TaskApp</string>
+    <string name="filter">Filter</string>
+    <string name="random_boolean">random boolean</string>
+    <string name="first_name">First Name</string>
+    <string name="clear_filter">clear filter</string>
+    <string name="search_word">search word</string>
+    <string name="title_activity_test">TestActivity</string>
+</resources>
