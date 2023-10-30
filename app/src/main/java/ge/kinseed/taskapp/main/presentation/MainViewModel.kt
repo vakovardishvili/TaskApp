@@ -52,7 +52,8 @@ interface MainViewModel {
                 }
 
             tableData = CrazyTableData(
-                items = employeeData,
+                //increase item count so beautiful vertical scroll is visible
+                items = employeeData + employeeData + employeeData + employeeData + employeeData + employeeData,
                 mainProperty = EMPLOYEE_MAIN_PROPERTY
             ).also { tableLiveData.postValue(it) }
         }

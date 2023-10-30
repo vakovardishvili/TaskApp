@@ -10,16 +10,15 @@ class EmployeeMapper @Inject constructor() {
 
     private fun convert(entity: EmployeeEntity): Employee = with(entity) {
         Employee(
-            //for visual purposes limiting id :)
             id = id.substring(0, 5),
             firstName = firstName,
             lastName = lastName,
-            company = company?.name?.substring(0, 5),
-            status = status?.substring(0, 5),
-            fixedLinePhone = fixedLinePhone?.substring(0, 5),
-            mobilePhone = mobilePhone?.substring(0, 5),
-            email = email?.substring(0, 5),
-            created = created?.substring(0, 5)
+            company = company?.name,
+            status = status,
+            fixedLinePhone = fixedLinePhone,
+            mobilePhone = mobilePhone,
+            email = email,
+            created = created
         )
     }
 }

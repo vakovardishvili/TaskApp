@@ -130,7 +130,7 @@ class CrazyTableView @JvmOverloads constructor(
             gravity = Gravity.CENTER
             updateLayoutParams {
                 width = 300
-                height = 100
+                height = 150
             }
             if (type == TableRowType.HEADER) {
                 if (data.sortingData?.title == title) {
