@@ -53,7 +53,7 @@ interface MainViewModel {
 
             tableData = CrazyTableData(
                 //increase item count so beautiful vertical scroll is visible
-                items = employeeData + employeeData + employeeData + employeeData + employeeData + employeeData,
+                items = employeeData + employeeData.filter {it.containsKey("id")} + employeeData.filter {it.containsKey("id")},
                 mainProperty = EMPLOYEE_MAIN_PROPERTY
             ).also { tableLiveData.postValue(it) }
         }

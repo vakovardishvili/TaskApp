@@ -17,6 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TableLayout
                 android:id="@+id/table_left_corner"
                 android:layout_width="wrap_content"
@@ -41,7 +42,6 @@
             </ge.kinseed.taskapp.view.MyScrollView>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 
 
     <ge.kinseed.taskapp.view.MyHorizontalScrollView
@@ -70,13 +70,13 @@
         <ge.kinseed.taskapp.view.MyHorizontalScrollView
             android:id="@+id/scroll_view_main_horizontal"
             android:layout_width="match_parent"
-            android:scrollbars="horizontal"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal">
 
             <TableLayout
                 android:id="@+id/table_main"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content" />
         </ge.kinseed.taskapp.view.MyHorizontalScrollView>
     </ge.kinseed.taskapp.view.MyScrollView>
 
