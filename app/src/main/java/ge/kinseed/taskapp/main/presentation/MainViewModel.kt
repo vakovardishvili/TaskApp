@@ -37,6 +37,7 @@ interface MainViewModel {
         override val infoLiveData = MutableLiveData<Event<String>>()
 
         private var tableData: CrazyTableData
+        private var initialState: CrazyTableData
 
         private var filterData = FilterData()
 
@@ -54,7 +55,10 @@ interface MainViewModel {
                 //increase item count so beautiful vertical scroll is visible
                 items = employeeData + employeeData + employeeData + employeeData,
                 mainProperty = EMPLOYEE_MAIN_PROPERTY
-            ).also { tableLiveData.postValue(it) }
+            ).also {
+                initialState = it
+                tableLiveData.postValue(it)
+            }
         }
 
         override fun sortByCell(title: String) {
@@ -100,7 +104,7 @@ interface MainViewModel {
 
         override fun clearFilter() {
             filterData.clearFilter()
-            filterButtonClicked()
+            tableLiveData.value = initialState
         }
 
         private fun List<HashMap<String, String>>.sort(
