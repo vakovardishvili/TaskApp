@@ -37,7 +37,6 @@ interface MainViewModel {
         override val infoLiveData = MutableLiveData<Event<String>>()
 
         private var tableData: CrazyTableData
-            get() = tableLiveData.value!!
 
         private var filterData = FilterData()
 
@@ -53,7 +52,7 @@ interface MainViewModel {
 
             tableData = CrazyTableData(
                 //increase item count so beautiful vertical scroll is visible
-                items = employeeData + employeeData.filter {it.containsKey("id")} + employeeData.filter {it.containsKey("id")},
+                items = employeeData + employeeData + employeeData + employeeData,
                 mainProperty = EMPLOYEE_MAIN_PROPERTY
             ).also { tableLiveData.postValue(it) }
         }
