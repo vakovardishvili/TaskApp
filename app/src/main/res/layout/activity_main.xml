@@ -1,51 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F3F3F3"
     android:orientation="vertical">
 
-
     <LinearLayout
+        android:id="@+id/balance_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginTop="16dp"
+        android:background="@drawable/container_rounded_background"
+        android:orientation="vertical"
+        android:paddingVertical="16dp"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:text="Table cells width and height are hardcoded :(" />
-
-        <EditText
-            android:id="@+id/search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/search_word" />
+            android:layout_marginStart="16dp"
+            android:text="@string/my_balances"
+            android:textColor="@color/black" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/exchange_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/container_rounded_background"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/balance_container">
+
+        <TextView
+            android:id="@+id/exchange_container_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/currency_exchange"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/from_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/from"
+            android:textColor="#111928"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/exchange_container_title" />
+
+
+        <LinearLayout
+            android:id="@+id/exchange_from_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/from_tv">
+
+            <FrameLayout
+                android:id="@+id/currency_icon_from"
+                android:layout_width="35dp"
+                android:layout_height="25dp"
+                android:background="@drawable/currency_icon_background_rounded_red"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/from_currency_symbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:includeFontPadding="false"
+                    android:src="@drawable/arrow_up"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    tools:text="$" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/from_currency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:textColor="#111928"
+                android:textSize="16sp"
+                tools:text="USD" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/angle_down" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/to_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to"
+            android:textColor="#111928"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/exchange_to_container"
+            app:layout_constraintTop_toTopOf="@id/from_tv" />
+
+
+        <LinearLayout
+            android:id="@+id/exchange_to_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/to_tv">
+
+            <FrameLayout
+                android:id="@+id/currency_icon_to"
+                android:layout_width="35dp"
+                android:layout_height="25dp"
+                android:background="@drawable/currency_icon_background_rounded_green"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/to_currency_symbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:includeFontPadding="false"
+                    android:src="@drawable/arrow_up"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    tools:text="$" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/to_currency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="#111928"
+                android:textSize="16sp"
+                tools:text="EUR" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/angle_down" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="16dp"
+            android:background="#e6e6e6"
+            app:layout_constraintTop_toBottomOf="@id/exchange_from_container" />
+
+        <EditText
+            android:id="@+id/from_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            android:hint="@string/_0_00"
+            android:inputType="numberDecimal"
+            android:paddingVertical="4dp"
+            android:textColor="#111928"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@id/to_amount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+        <EditText
+            android:id="@+id/to_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            android:gravity="end"
+            android:hint="@string/_0_00"
+            android:inputType="numberDecimal"
+            android:paddingVertical="4dp"
+            android:textColor="#111928"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/from_amount"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="end"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/to_amount">
 
-            <Button
-                android:id="@+id/button_filter"
+            <TextView
+                android:id="@+id/exchange_rate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/filter" />
-
-            <Button
-                android:id="@+id/button_clear_filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="@string/clear_filter" />
+                android:textColor="@color/black"
+                tools:text="Exchange rate: 1.12" />
         </LinearLayout>
-    </LinearLayout>
 
-    <ge.kinseed.taskapp.view.crazytable.CrazyTableView
-        android:id="@+id/crazy_table"
-        android:layout_width="match_parent"
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background_rounded_blue"
+        android:text="@string/submit"
+        app:layout_constraintEnd_toEndOf="@id/exchange_container"
+        app:layout_constraintStart_toStartOf="@id/exchange_container"
+        app:layout_constraintTop_toBottomOf="@id/exchange_container" />
 
-</LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/progress_circular"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:translationZ="2dp"
+        android:background="@color/white">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/black"
+            android:indeterminateTintMode="src_atop" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

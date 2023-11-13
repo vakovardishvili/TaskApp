@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.TaskApp" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.TaskApp" parent="Theme.AppCompat" >
+        <item name="colorPrimary">#019cde</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/black</item>
+    </style>
 </resources>

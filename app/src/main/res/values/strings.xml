@@ -1,9 +1,18 @@
 <resources>
     <string name="app_name">TaskApp</string>
-    <string name="filter">Filter</string>
-    <string name="random_boolean">random boolean</string>
-    <string name="first_name">First Name</string>
-    <string name="clear_filter">clear filter</string>
-    <string name="search_word">search word</string>
-    <string name="title_activity_test">TestActivity</string>
+    <string name="my_balances">MY BALANCES</string>
+    <string name="amount_list_item">%1$s  %2$s</string>
+    <string name="currency_exchange">CURRENCY EXCHANGE</string>
+    <string name="buy">Buy</string>
+    <string name="sell">Sell</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="_0_00">0.00</string>
+    <string name="currency_converter">Currency converter</string>
+    <string name="exchange_rate">Exchange rate: %1$f</string>
+    <string name="transaction_fee">Transaction fee: %1$f</string>
+    <string name="submit">Submit</string>
+    <string name="done">Done</string>
+    <string name="currency_converted">Currency converted</string>
+    <string name="conversion_summary">You have converted %1$.10s %2$s to %3$.10s %4$s. Commission Fee %5$.10s %2$s</string>
 </resources>
